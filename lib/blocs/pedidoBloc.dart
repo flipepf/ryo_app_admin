@@ -24,11 +24,11 @@ class PedidoBloc extends BlocBase {
             _pedidos.add(change.document); //ARMAZENA O NOVO DOCUMENTO NA LISTA _pedidos
             break;
           case DocumentChangeType.modified: //CASO A ALTERAÇÃO SEJA A EDIÇÃO DE UM PEDIDO
-            _pedidos.removeWhere((pedido) => pedido.documentID == pid); //REMOVE A POSIÇÃO EM QUE DocumentID É iGUAL A pid
+            _pedidos.removeWhere((pedido) => pedido.documentID == pid); //REMOVE A POSIÇÃO EM QUE DocumentID É IGUAL A pid
             _pedidos.add(change.document); //E ADICIONA O NOVO COM A ALTERAÇÃO
             break;
           case DocumentChangeType.removed:
-            _pedidos.removeWhere((pedido) => pedido.documentID == pid); //REMOVE A POSIÇÃO EM QUE DocumentID É iGUAL A pid
+            _pedidos.removeWhere((pedido) => pedido.documentID == pid); //REMOVE A POSIÇÃO EM QUE DocumentID É IGUAL A pid
             break;
         }
       });
