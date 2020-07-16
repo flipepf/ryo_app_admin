@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ryo_app_admin/blocs/pedidoBloc.dart';
 import 'package:ryo_app_admin/blocs/usuarioBloc.dart';
 import 'package:ryo_app_admin/tabs/pedidosTab.dart';
+import 'package:ryo_app_admin/tabs/usuariosTab.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       //######################################################################
-      body: SafeArea(
+      body: SafeArea( //SAFE AREA PARA DESCONSIDERAR A AREA DO TOPO DA TELA (DEVIDO A NÃO TER APPBAR)
         child: BlocProvider<UsuarioBloc>(
           bloc: _usuarioBloc,
           child: BlocProvider<PedidoBloc>(
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 PedidosTab(),
                 Container(color: Colors.blue),
-                Container(color: Colors.yellow),
+                UsuariosTab(),
               ]
             )
           ),
