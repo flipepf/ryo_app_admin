@@ -78,6 +78,7 @@ class UsuarioBloc extends BlocBase {
   }
 
   void _unsubscribeToPedidos(String uid){
+
     _usuarios[uid]["subscription"].cancel();
   }
   //############################################################################

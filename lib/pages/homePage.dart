@@ -1,8 +1,10 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:ryo_app_admin/blocs/pedidoBloc.dart';
 import 'package:ryo_app_admin/blocs/usuarioBloc.dart';
 import 'package:ryo_app_admin/tabs/pedidosTab.dart';
+import 'package:ryo_app_admin/tabs/produtosTab.dart';
 import 'package:ryo_app_admin/tabs/usuariosTab.dart';
 
 class HomePage extends StatefulWidget {
@@ -70,13 +72,48 @@ class _HomePageState extends State<HomePage> {
               },
               children: <Widget>[
                 PedidosTab(),
-                Container(color: Colors.blue),
-                UsuariosTab(),
+                ProdutosTab(),
+                UsuariosTab()
               ]
             )
           ),
         ),
       ),
+      floatingActionButton: _buildBotao(),
     );
+  }
+  //############################################################################
+  Widget _buildBotao(){
+    switch(_page){
+      case 2:
+        return null;
+      case 0:
+        return SpeedDial(
+          child: Icon(Icons.sort),
+          backgroundColor: Colors.red,
+          overlayOpacity: 0.4,
+          overlayColor: Colors.black,
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.arrow_downward, color: Colors.red),
+              backgroundColor: Colors.white,
+              label: "Concluidos Abaixo",
+              labelStyle: TextStyle(fontSize: 14),
+              onTap: (){
+                _pedidoBloc.setOrdem(Ordem.CONCLUIDOS_FIM);
+              }
+            ),
+            SpeedDialChild(
+                child: Icon(Icons.arrow_upward, color: Colors.red),
+                backgroundColor: Colors.white,
+                label: "Concluidos Acima",
+                labelStyle: TextStyle(fontSize: 14),
+                onTap: (){
+                  _pedidoBloc.setOrdem(Ordem.CONCLUIDOS_INICIO);
+                }
+            )
+          ],
+        );
+    }
   }
 }

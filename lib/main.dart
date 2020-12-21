@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primaryColor: Colors.red
+          primaryColor: Colors.redAccent
       ),
       debugShowCheckedModeBanner: false,
       home: LoginPage(),

@@ -31,10 +31,10 @@ class UsuariosTab extends StatelessWidget {
               builder: (context, snapshot) {
                 //######################## ENQUANTO NÃO HOUVER DADOS NO SNAPSHOT
                 if(!snapshot.hasData)
-                  return Center(child: CircularProgressIndicator( valueColor: AlwaysStoppedAnimation(Colors.pinkAccent),),);
+                  return Center(child: CircularProgressIndicator( valueColor: AlwaysStoppedAnimation(Colors.red),),);
                 //############################################ SE RETORNAR VAZIO
                 else if(snapshot.data.length == 0)
-                  return Center(child: Text("Nenhum usuário encontrado!", style: TextStyle(color: Colors.pinkAccent ),),);
+                  return Center(child: Text("Nenhum usuário encontrado!", style: TextStyle(color: Colors.red),),);
                 else
                 //############################## LISTA DE USUARIOS COM SEPARAÇÃO
                   return ListView.separated(
